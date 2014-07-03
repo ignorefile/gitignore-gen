@@ -1,0 +1,1 @@
+type some keywords to generate a .gitignore file.
