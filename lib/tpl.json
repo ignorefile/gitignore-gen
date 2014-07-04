@@ -1,0 +1,4 @@
+{
+    "mac": ".DS_Store\n",
+    "node": "node_modules/*\n"
+}
