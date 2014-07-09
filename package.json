@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/lisposter/gitignore-gen/issues"
   },
-  "homepage": "https://github.com/lisposter/gitignore-gen"
+  "homepage": "https://github.com/lisposter/gitignore-gen",
+  "dependencies": {
+    "commander": "^2.2.0"
+  }
 }
