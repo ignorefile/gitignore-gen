@@ -1,7 +1,10 @@
-in dev now...
-
 # .gitignore generator
 type some keywords to generate a .gitignore file.
+
+# Install 
+```
+npm install -g gitignore-gen
+```
 
 # Quick start
 
