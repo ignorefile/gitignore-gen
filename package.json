@@ -1,13 +1,10 @@
 {
   "name": "gitignore-gen",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "type some keywords to generate a .gitignore file",
   "main": "index.js",
   "bin": {
     "ignore": "index.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
