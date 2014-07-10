@@ -9,7 +9,7 @@ npm install -g gitignore-gen
 # Quick start
 
 ```sh
-ignore [keyword [keyword]] ...
+ignore [keyword [keyword]] [-a PATTERN [, PATTERN]] [-f]...
 ```
 
 eg.
