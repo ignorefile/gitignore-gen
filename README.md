@@ -47,3 +47,9 @@ it will generated below:
 ...
 .lock-wscript
 ```
+
+# Future features
+
+* view .gitignore file
+* auto dected dev env.
+* delete pattern
