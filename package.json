@@ -1,6 +1,6 @@
 {
   "name": "gitignore-gen",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "type some keywords to generate a .gitignore file",
   "main": "index.js",
   "bin": {

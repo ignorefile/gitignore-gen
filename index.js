@@ -2,7 +2,6 @@
 
 var fs = require('fs');
 
-var through =  require('through');
 var map = require('through2-map');
 
 var cmd = require('./lib/cmd');
