@@ -4,7 +4,8 @@
   "description": "type some keywords to generate a .gitignore file",
   "main": "index.js",
   "bin": {
-    "ignore": "index.js"
+    "ignore": "index.js",
+    "ignore-view": "bin/ignore-view.js"
   },
   "repository": {
     "type": "git",

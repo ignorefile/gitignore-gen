@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 
-var cmd = require('./lib/cmd-parse');
+var cmd = require('./lib/cmd');
 var tpls = require('./lib/tpl.json');
 var keywords = process.argv.slice(2);
 
