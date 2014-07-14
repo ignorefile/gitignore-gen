@@ -2,11 +2,16 @@
 
 var fs = require('fs');
 
+var through =  require('through');
+var map = require('through2-map');
+
 var cmd = require('./lib/cmd');
 var tpls = require('./lib/tpl.json');
 var keywords = process.argv.slice(2);
 
 var options = cmd();
+
+var cwd = process.cwd();
 
 var result = options.append.reduce(function(prev, curr, idx, arr) {
     if(keywords.indexOf(curr) >= 0) 
@@ -23,4 +28,38 @@ if(options.custom) {
     })
 }
 
-ws.end(result.join(''));
+if(keywords.indexOf('rm') < 0) {
+	ws.end(result.join(''));
+}
+
+
+if(options.remove.length > 0) {
+	var remove = map({wantStrings: true}, function(str) {
+		options.remove.forEach(function(arg) {
+			if(tpls[arg]) {
+				str = str.replace(tpls[arg], '');
+			}
+		})
+		return str;
+	})
+
+	var stream = fs.ReadStream(cwd + '/.gitignore');
+	var ws = fs.createWriteStream(cwd + '/.gitignore_new');
+	stream.pipe(remove).pipe(ws);
+
+	ws.on('error', function(err) {
+		return console.error('Error occured, pls try again.')
+	})
+
+	fs.unlink(cwd + '/.gitignore', function(err) {
+		if(err) throw err;
+		fs.rename(cwd + '/.gitignore_new', cwd + '/.gitignore', function(err) {
+			if(err) throw err;
+			// fs.unlink(cwd + '/.gitignore_new', function() {
+			// 	console.info('Change success! Have fun!')
+			// })
+		});
+	})
+
+	
+}

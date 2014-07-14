@@ -1,6 +1,6 @@
 {
   "name": "gitignore-gen",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "type some keywords to generate a .gitignore file",
   "main": "index.js",
   "bin": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/lisposter/gitignore-gen",
   "dependencies": {
-    "commander": "^2.2.0"
+    "commander": "^2.2.0",
+    "through2-map": "^1.4.0"
   }
 }

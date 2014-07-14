@@ -48,6 +48,12 @@ it will generated below:
 .lock-wscript
 ```
 
+### `ignore view`
+view current .gitignore file's content
+
+### `ignore -r keyword` or `ignore --remove keyword`
+remove some pattern which matched the args you provided
+
 # Future features
 
 * view .gitignore file
