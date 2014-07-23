@@ -32,33 +32,58 @@ if(keywords.indexOf('rm') < 0) {
 }
 
 
-if(options.remove.length > 0) {
-	var remove = map({wantStrings: true}, function(str) {
-		options.remove.forEach(function(arg) {
-			if(tpls[arg]) {
-				str = str.replace(tpls[arg], '');
-			}
-		})
-		return str;
-	})
+// if(options.remove.length > 0) {
+// 	var remove = map({wantStrings: true}, function(str) {
+// 		options.remove.forEach(function(arg) {
+// 			if(tpls[arg]) {
+// 				str = str.replace(tpls[arg], '');
+// 			}
+// 		})
+// 		return str;
+// 	})
 
-	var stream = fs.ReadStream(cwd + '/.gitignore');
-	var ws = fs.createWriteStream(cwd + '/.gitignore_new');
-	stream.pipe(remove).pipe(ws);
+// 	var stream = fs.ReadStream(cwd + '/.gitignore');
+// 	var ws = fs.createWriteStream(cwd + '/.gitignore_new');
+// 	stream.pipe(remove).pipe(ws);
 
-	ws.on('error', function(err) {
-		return console.error('Error occured, pls try again.')
-	})
+// 	ws.on('error', function(err) {
+// 		return console.error('Error occured, pls try again.')
+// 	})
 
-	fs.unlink(cwd + '/.gitignore', function(err) {
-		if(err) throw err;
-		fs.rename(cwd + '/.gitignore_new', cwd + '/.gitignore', function(err) {
-			if(err) throw err;
-			// fs.unlink(cwd + '/.gitignore_new', function() {
-			// 	console.info('Change success! Have fun!')
-			// })
-		});
-	})
+// 	fs.unlink(cwd + '/.gitignore', function(err) {
+// 		if(err) throw err;
+// 		fs.rename(cwd + '/.gitignore_new', cwd + '/.gitignore', function(err) {
+// 			if(err) throw err;
+// 			console.info('Change success! Have fun!')
+// 		});
+// 	})
 
 	
-}
+// }
+
+var stream = fs.ReadStream(cwd + '/.gitignore');
+var wsNew = fs.createWriteStream(cwd + '/.gitignore_new');
+
+var remove = map({wantStrings: true}, function(str) {
+	if(options.remove.length <= 0) return str;
+	options.remove.forEach(function(arg) {
+		if(tpls[arg]) {
+			str = str.replace(tpls[arg], '');
+		}
+	})
+	return str;
+});
+
+stream.pipe(remove).pipe(wsNew);
+
+wsNew.on('error', function(err) {
+	return console.error('Error occured, pls try again.')
+})
+
+fs.unlink(cwd + '/.gitignore', function(err) {
+	if(err) throw err;
+	fs.rename(cwd + '/.gitignore_new', cwd + '/.gitignore', function(err) {
+		if(err) throw err;
+		console.info('Change success! Have fun!')
+	});
+})
