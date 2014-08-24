@@ -30,7 +30,7 @@ node_modules/*
 add `--force` option to force rewrite the .gitignore
 
 ### `--custom` or `-c`
-add `--custom` to append your custom ignore pattern
+add `--custom` to append your custom ignore pattern, use comma to separate items.
 
 eg.
 
