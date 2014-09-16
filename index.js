@@ -74,7 +74,9 @@ var remove = map({wantStrings: true}, function(str) {
 	return str;
 });
 
-stream.pipe(remove).pipe(wsNew);
+stream.pipe(remove).pipe(wsNew).on('finish', function() {
+    console.info('.gitignore file has been generated.');
+});
 
 wsNew.on('error', function(err) {
 	return console.error('Error occured, pls try again.')
@@ -84,6 +86,5 @@ fs.unlink(cwd + '/.gitignore', function(err) {
 	if(err) throw err;
 	fs.rename(cwd + '/.gitignore_new', cwd + '/.gitignore', function(err) {
 		if(err) throw err;
-		console.info('Change success! Have fun!')
 	});
 })
