@@ -1,3 +1,11 @@
+#=<<< custom =#
+#= custom >>>=#
+
+#=<<< mac =#
+.DS_Store
+#= mac >>>=#
+
+#=<<< node =#
 # Logs
 logs
 *.log
@@ -21,8 +29,26 @@ build/Release
 
 # Dependency directory
 # Commenting this out is preferred by some people, see
-# https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+#= node >>>=##=<<< sublimetext =#
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json
+
+#= sublimetext >>>=#
